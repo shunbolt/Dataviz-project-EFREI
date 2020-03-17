@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Data vizualization project - Tran Raphaël</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <style type="text/css">
+   body { background: #d4d4d4;  !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+
+   bold-para {
+    font-style: bold;
+    font-size: 700%;
+    color: red;
+    text-transform: uppercase;}
+
+
+  </style>
+
+</head>
+
+<body>
+
+  <script>
+    function Change_map(input){
+      if(input == 1){locat_map.src = "src/kepler_map_locat_lum.html";}
+      else if(input == 2){locat_map.src = "src/kepler_map_locat_catr.html";}
+      else if(input == 3){locat_map.src = "src/kepler_map_locat_surf.html";}
+      else if(input == 4){locat_map.src = "src/kepler_map_locat_atm.html";}
+    }
+  </script>
+
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand font-weight-bolder" href="#top-page" >Data visualization project</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#top-page">Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#intro">Intro</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#users">Users</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#locat">Locations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#vehicle">Vehicles</a>
+          </li> 
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <br>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center" id='top-page'>
+        <h1 class="display-2 mt-5 font-weight-bold" >Data visualization project</h1> 
+        <h2 class="display-4 mt-2">French traffic car accidents</h2>
+        <p class="lead">by Tran Raphaël</p>
+        <img src='images/car_crash_logoV2.png'>
+        <hr/>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-100"></div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <blockquote class="blockquote" id='intro' >
+          <p class="mb-0">Speed is irrelevant if you are going in the wrong direction</p>
+          <footer class="blockquote-footer"> <cite title="Source Title"> Mahatma Gandhi</cite></footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+  <br style = “line-height:100px;”>
+  <br style = “line-height:100px;”>
+  <div class = "container" >
+    <div class="row">
+      <div class="col-lg-12 text-center"> 
+        <div class = "card">
+          <div class = "card-header">
+            <h2 class="display-3">Introduction</h2>
+          </div>
+        </div>
+      </div>
+  </div>
+  <br style = “line-height:100px;”>
+  
+
+  
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7 text-left">
+        <div class = "card">
+          <div class = "card-body">
+            <p> <bold-para> 55716 </bold-para> represent the number of accidents inside Metropolitan France in 2018. This means that on average, a collision between either two vehicles or a vehicle and a pedestrian occurred <strong> every thirty minutes </strong>.  </p>
+
+            <p>As such, the risk of car traffic accidents is pretty frequent and sometimes deadly : From ONISR, <strong> 3248 people died </strong> on the Metropolitan road in 2018 </p>
+
+            <p> The goal here is to zoom on the scope of those accidents and <strong> determine the factors of deadly collisions </strong> : while the highest cause of death is speed, I'd like to analyze the conditions that led to such tragedies. Maybe the driver was in a hurry ? Maybe the road was steep, slippery or snowy ? </p>
+
+            <p>
+              Another goal is to determine how we can improve the vehicle to reduce collision damage and human casualties. This information may prove insightful to automobile constructors.
+            </p>
+
+            <p>The dataset used is the set of all car accidents happening in 2018 from <a href="https://www.data.gouv.fr/fr/datasets/base-de-donnees-accidents-corporels-de-la-circulation/">data.gouv.fr</a> website. The dataset is composed of 4 .csv files :
+              <ul>
+                <li> caracteristiques-2018.csv : overview of accident (date-lat-lon)  </li>
+                <li> lieux-2018.csv : about location situation </li>
+                <li> vehicules-2018.csv : about vehicle information </li>
+                <li> usagers.csv : about persons involved </li>
+              </ul>
+            </p>
+          </div>
+
+        </div>
+
+
+      </div>
+      <div class="col-lg-5 text-left">
+        <div class ="card">
+          <iframe class="embed-responsive-item" src='src/kepler_map.html' height="600px" width="431px" ></iframe>
+          <div class ="card-body">
+            Map of all the car accidents in Metropolitan France
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br style = “line-height:100px;” id = "users" >
+  <br style = “line-height:100px;”>
+
+  <div class = "container" >
+    <div class="row">
+      <div class="col-lg-12 text-center"> 
+        <div class = "card">
+          <div class = "card-header">
+            <h2 class="display-3">1 - User analysis</h2>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <br style = “line-height:100px;”>
+  
+
+  <div class = 'container'>
+    <div class = 'row'>
+      <div class="col-lg-12">
+        <div class = 'card'> 
+          <div class="card-body">
+            We want to evaluate the relationship of three features :
+            <ol>
+              <li> The age </li>
+              <li> The sex </li>
+              <li> The motive of trip</li>
+            </ol>
+            We'd like to perform analysis on two dimensions : first among all victims regardless of the gravity of accident, then on deceased victims only to spot differences.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br style = “line-height:100px;”>
+
+  <div class = 'container'>
+    <div class = 'row'>
+      <div class="col-lg-12">
+        <div class = 'card'>
+          <div class = 'card-body'>
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src = "src/barchart_sex_age.html"></iframe>
+            </div>
+          </div>
+          <div class="card-footer">
+            From this barchart, we can see that the majority of victims are male and born around 1990s-2000s 
+          </div>
+        </div>  
+      </div>
+    </div>
+  </div>
+
+  <br style = “line-height:100px;”>
+
+  <div class = 'container'>
+    <div class = 'row'>
+      <div class="col-lg-12">
+        <div class = 'card'>
+          <div class = 'card-body'>
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src = "src/barchart_age_motive.html"></iframe>
+            </div>
+          </div>
+          <div class="card-footer">
+            From this barchart, most of the victims's motive were leisure. Second most frequent motive is work   
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+
+  <br style = “line-height:100px;”>
+
+  <div class = 'container'>
+    <div class = 'row'>
+      <div class="col-lg-12 text-center">
+        <div class = 'card'> 
+          <div class="card-body">
+            Now let us perform analysis among only deceased victims to compare how our features evolve
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br style = “line-height:100px;”>
+
+  <div class = 'container'>
+    <div class = 'row'>
+      <div class="col-lg-12">
+        <div class = 'card'>
+          <div class = 'card-body'>
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src = "src/barchart_sex_age_dead.html"></iframe>
+            </div>
+          </div>
+          <div class="card-footer">
+            A vast majority of deceased remain male but proportion of victims are much older  
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+
+  <br style = “line-height:100px;”>
+
+  <div class = 'container'>
+    <div class = 'row'>
+      <div class="col-lg-12">
+        <div class = 'card'>
+          <div class = 'card-body'>
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src = "src/barchart_age_motive_dead.html"></iframe>
+            </div>
+          </div>
+          <div class="card-footer">
+            Most of the deadly accidents are due to leisure trip or going to work.   
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+
+  <br style = “line-height:100px;”>
+
+<div class = 'container'>
+    <div class = 'row'>
+      <div class="col-lg-12 text-center text-danger">
+        <div class = 'card'> 
+          <div class="card-body">
+            <h3> Drivers are the most vulnerable when they are distracted or stressed by the destination, regardless of the age or the sex </h3>
+            <h3> They may be too focused on reaching their destination and less focused of the trip itself  </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <br style = “line-height:100px;” id = "locat" >
+  <br style = “line-height:100px;”>
+
+  <div class = "container" >
+    <div class="row">
+      <div class="col-lg-12 text-center"> 
+        <div class = "card">
+          <div class = "card-header">
+            <h2 class="display-3">2 - Location analysis</h2>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <br style = “line-height:100px;”>
+
+
+  <div class = 'container'>
+      <div class = 'row'>
+        <div class="col-lg-12">
+          <div class = 'card'> 
+            <div class="card-body">
+              The goal is to map which areas of France are the most dangerous by taking into account :
+              <ol>
+                <li> The daylight </li>
+                <li> The road category </li>
+                <li> The slope of the road </li>
+                <li> The weather </li> 
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br style = “line-height:100px;”>
+
+  <div class = 'container'>
+    <div class = 'row'>
+      <div class="col-lg-12">
+        <div class = 'card'>
+          <div class = 'card-body'>
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe id= 'locat_map' class="embed-responsive-item"  src = "src/kepler_map_locat_lum.html"></iframe>
+            </div>
+          </div>
+          <div class="card-footer text-center">
+            <button type="button" class="btn btn-primary btn-lg" onclick = "Change_map(1);" checked> Luminosity </button> 
+            <button type="button" class="btn btn-primary btn-lg" onclick = "Change_map(2);" checked> Road category </button>
+            <button type="button" class="btn btn-primary btn-lg" onclick = "Change_map(3);" checked> Road surface </button>
+            <button type="button" class="btn btn-primary btn-lg" onclick = "Change_map(4);" checked> Weather </button>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+
+
+  <br style = “line-height:100px;”>
+
+  <div class = 'container'>
+      <div class = 'row'>
+        <div class="col-lg-12 text-center text-danger">
+          <div class = 'card'> 
+            <div class="card-body">
+              <h3> Deadly accidents occur mostly on district roads where there less signs and narrow lines </h3>
+              <h3> Accidents gravity are not impacted by specific weather, road surface or ambient luminosity </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+  <br style = “line-height:100px;” id = "vehicle" >
+  <br style = “line-height:100px;”>
+
+  <div class = "container" >
+    <div class="row">
+      <div class="col-lg-12 text-center"> 
+        <div class = "card">
+          <div class = "card-header">
+            <h2 class="display-3">3 - Vehicle analysis</h2>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <br style = “line-height:100px;”>
+
+
+  <div class = 'container'>
+      <div class = 'row'>
+        <div class="col-lg-12">
+          <div class = 'card'> 
+            <div class="card-body">
+              We want to determine which side of the vehicle is impacted first in deadly accidents
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <br style = “line-height:100px;”>
+
+  <div class = 'container'>
+    <div class = 'row'>
+      <div class="col-lg-12">
+        <div class = 'card'>
+          <div class = 'card-body'>
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src = "src/heatmap_collision.html"></iframe>
+            </div>
+          </div>
+          <div class="card-footer">
+            More than 60% of fatal accidents are due to frontal collision   
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+  <br style = “line-height:100px;”>
+
+  <div class = "container" >
+    <div class="row">
+      <div class="col-lg-12 text-center"> 
+        <div class = "card">
+          <div class = "card-header">
+            <h2 class="display-3">Conclusion</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br style = “line-height:100px;”>
+
+  <div class = 'container'>
+      <div class = 'row'>
+        <div class="col-lg-12 text-center text-danger">
+          <div class = 'card'> 
+            <div class="card-body">
+              <h3> The evil recipe for an unfortunate car accident is : </h3>
+              <ol>
+                <li> Driver too focused on it's destination and not pying attention to the road itself </li>
+                <li> Driving in narrow road with irregular amounts of curves, slopes. </li>
+                <li> Full frontal collision where the driver isthe most vulnerable  </li>  
+              </ol>
+              It's nothing new, but this project has a goal to bring much more awareness to this subject
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+<br style = “line-height:100px;”>
+
+<div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <blockquote class="blockquote" id='intro' >
+          <p class="mb-0"> Decisions can be like car accidents : sudden and full of consequences </p>
+          <footer class="blockquote-footer"> <cite title="Source Title"> Allison Glock</cite></footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.slim.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>
